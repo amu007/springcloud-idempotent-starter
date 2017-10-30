@@ -2,6 +2,7 @@ package org.amu.starter.springcloud.idempotent.test;
 
 import java.util.UUID;
 
+import org.amu.starter.springcloud.idempotent.Constants;
 import org.amu.starter.springcloud.idempotent.webapp.IdempotentTestApplication;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -48,7 +49,7 @@ public class ExceptionCallTest {
 		String requestId = "execSameCall:"+UUID.randomUUID();
 		
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-		headers.add("X-SN-REQUEST-ID", requestId);
+		headers.add(Constants.REQ_IDEM_ID, requestId);
 		headers.add("Content-Type", "application/json");
 		HttpEntity requests = new HttpEntity(headers);
 		
@@ -70,7 +71,7 @@ public class ExceptionCallTest {
 		String requestId2 = "execDiffrentCall_:"+UUID.randomUUID();
 
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-		headers.add("X-SN-REQUEST-ID", requestId1);
+		headers.add(Constants.REQ_IDEM_ID, requestId1);
 		headers.add("Content-Type", "application/json");
 		HttpEntity requests = new HttpEntity(headers);
 		
@@ -79,7 +80,7 @@ public class ExceptionCallTest {
 		String reponse1 = response.getBody();
 		
 		MultiValueMap<String, String> headers2 = new LinkedMultiValueMap<String, String>();
-		headers.add("X-SN-REQUEST-ID", requestId2);
+		headers.add(Constants.REQ_IDEM_ID, requestId2);
 		headers.add("Content-Type", "application/json");
 		HttpEntity requests2 = new HttpEntity(headers2);
 		

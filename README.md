@@ -13,4 +13,10 @@ This is something that you get for free just by adding the following dependency 
 </dependency>
 ```
 
+Then you can configure the package in your code simply by:
+
+```java
+@ComponentScan(basePackages = { "org.amu.starter.springcloud.idempotent" })
+```
+
 All HTTP reqeusts (not GET method) need add header "X-REQ-IDEM-ID" with a UUID value.

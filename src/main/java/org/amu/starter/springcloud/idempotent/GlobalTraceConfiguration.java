@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  *
  */
 @Configuration
-@ComponentScan(basePackages = { "com.shareworks.bumblebee.idempotent" })
+@ComponentScan(basePackages = { "org.amu.starter.springcloud.idempotent" })
 public class GlobalTraceConfiguration extends WebMvcConfigurerAdapter {
 
 	@Autowired
