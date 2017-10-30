@@ -12,3 +12,5 @@ This is something that you get for free just by adding the following dependency 
 	<version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
+
+All HTTP reqeusts (not GET method) need add header "X-REQ-IDEM-ID" with a UUID value.
